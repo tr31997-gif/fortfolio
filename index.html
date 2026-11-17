@@ -79,13 +79,54 @@
     h2 { margin: 7px 0 10px; color: var(--navy); font-size: clamp(1.75rem, 3.2vw, 2.45rem); line-height: 1.4; font-weight: 600; letter-spacing: -.025em; }
     .section-heading p { margin: 0; color: var(--muted); font-size: .96rem; }
     .about { background: var(--surface); }
-    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 66px; }
-    .profile-card { position: relative; min-height: 345px; display: grid; place-items: center; overflow: hidden; border: 1px solid #e6edfa; border-radius: 26px; background: linear-gradient(145deg, #eaf2ff, #dceaff); }
-    .profile-card::before, .profile-card::after { content: ''; position: absolute; border: 1px solid #c8dafa; border-radius: 50%; }
-    .profile-card::before { width: 260px; height: 260px; }.profile-card::after { width: 320px; height: 320px; }
-    .avatar { z-index: 1; width: 196px; height: 196px; overflow: hidden; border: 8px solid rgba(255,255,255,.9); border-radius: 50%; background: linear-gradient(145deg, #fff, #d5e5ff); box-shadow: 0 15px 35px #264f8a20; }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-    .profile-tag { position: absolute; z-index: 2; bottom: 22px; padding: 7px 16px; border: 1px solid #fff; border-radius: 999px; background: white; color: var(--navy); font-size: .8rem; font-weight: 500; box-shadow: 0 7px 20px #24477813; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 60px; }
+
+    /* กรอบสี่เหลี่ยมใส่รูปโปรไฟล์เต็มใบ */
+    .profile-card {
+      position: relative;
+      aspect-ratio: 4 / 4.3;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 6px solid #fff;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #eaf2ff, #dceaff);
+      box-shadow: 0 18px 45px rgba(27, 62, 120, .12);
+    }
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .profile-fallback {
+      display: none;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      color: #4b78c7;
+    }
+    .profile-fallback svg { width: 120px; height: 120px; }
+    .profile-tag {
+      position: absolute;
+      z-index: 2;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      color: var(--navy);
+      font-size: .82rem;
+      font-weight: 500;
+      box-shadow: 0 8px 24px rgba(20, 42, 85, .15);
+    }
+
     .about-copy h3 { margin: 0 0 12px; color: var(--navy); font-size: 1.5rem; font-weight: 600; }
     .about-copy p { margin: 0 0 13px; color: var(--muted); font-size: .94rem; }
     .skill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 23px; }
@@ -117,7 +158,7 @@
       .container { width: min(100% - 34px, 500px); }.nav { min-height: 66px; }.brand { font-size: .95rem; }.brand-mark { width: 36px; height: 36px; }.nav-github { display: none; }.menu-toggle { display: block; }
       .nav-links { position: absolute; top: 65px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 15px; border-bottom: 1px solid var(--line); background: white; box-shadow: 0 14px 20px #1f3a5b0d; }.nav-links.open { display: flex; }.nav-links a { padding: 10px 8px; }
       .hero { padding: 54px 0 47px; }.hero-grid { grid-template-columns: 1fr; gap: 4px; }.hero-copy { font-size: .96rem; }.hero-visual { min-height: 300px; margin-top: 6px; transform: scale(.88); }.visual-orbit { width: 275px; height: 275px; }.code-card { max-width: 320px; }.badge-top { top: 20px; right: -9px; }.badge-bottom { bottom: 14px; left: -8px; }
-      section { padding: 64px 0; }.section-heading { margin-bottom: 31px; }.about-grid { grid-template-columns: 1fr; gap: 29px; }.profile-card { min-height: 290px; }.profile-card::before { width: 220px; height: 220px; }.profile-card::after { width: 275px; height: 275px; }.avatar { width: 165px; height: 165px; }
+      section { padding: 64px 0; }.section-heading { margin-bottom: 31px; }.about-grid { grid-template-columns: 1fr; gap: 29px; }.profile-card { min-height: 320px; max-width: 380px; margin-inline: auto; width: 100%; }
       .projects-grid { grid-template-columns: 1fr; gap: 15px; }.project-card:last-child { grid-column: auto; }.project-card:last-child .project-art { height: 166px; }.project-content p { min-height: auto; }.github-cta { align-items: flex-start; flex-direction: column; padding: 20px; }
       .activity-item { grid-template-columns: 49px 1fr; gap: 13px; padding: 15px; }.activity-icon { width: 47px; height: 47px; }.activity-year { grid-column: 2; justify-self: start; margin-top: -6px; }.activity-item h3 { font-size: .9rem; }.activity-item p { font-size: .78rem; }
       .contact { padding: 47px 0; }.contact-box { align-items: flex-start; flex-direction: column; padding: 27px 24px; }.contact-box h2 { font-size: 1.45rem; }.footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding: 18px 0; gap: 8px; }.footer-links { gap: 13px; }
@@ -170,12 +211,20 @@
 
     <section class="about" id="about">
       <div class="container about-grid">
+        <!-- กรอบสี่เหลี่ยมแสดงรูปเต็มใบ -->
         <div class="profile-card reveal" aria-label="รูปโปรไฟล์ ปัณณวัตน์ ราชเจริญ">
-          <div class="avatar">
-            <img src="https://lh3.googleusercontent.com/rd-gg/AJWXcNfwp6X7NXqhGLLtzpucSKVK49vWzYgeKTu-W_viwvbrjGg6weqNkCfJLgdcTEs5RernruwZK9MzRZrGOGV6DTWM5AKkva86uNI41xtzuOWF6vv-pIqYJbI4eZDW1jFzTGRKvWCDqB9-7uc7OpedB6FsFECgTkCpCgKjs_GTASrETgaOJSCdpK_HsZzjRuvbbfmMpb9JmqEcwYvfv7-FXC8KKTnnOJZWg25TUchP1bg1uMWbSOLtyQM19vkb_mhDjMRiH5qdppxBrAy013-w_cdIByeh2hHBtSmeSqABdHL9vNdXEP1YHv2iFOWJbR9PJU5svVgOkUYA0CLbgOYpxpLU2sdT1PSn6RxN0XoRJaAFylsBam0MDxW0v5wDJa_zBNId0LNhROFNoIm5CAvL7aHCUFqw9GRwaEYrOty012xWJp7m4ylzbSr0sKOdNY8NOAwO_ZayeoA7T5QQjqsuKWgAHTNaQ3GtL_A6aa2it0bdS-VS9ZACZI2cUWBjZXmTXgMPuxggDqHJ54NxjpHpitj444kmW7WfonSdVEmsUtdD27MhrVOG2bdcmo8u6VkB2G9EFOYouEvbtxGw0CfeddX6uge59buC47LduBjfVEBoeuZOVtJOqWXbgkK5bxLaNOf-iJAKHa_ldnyj_cgZX0-zaDFNiFpI_i3g5oRMTVrGypbxGxYlWenmVpFuxa2W9dwzlXLnWqdUizJYBLPQjqJau_Yj9tRV4ocneXjs_tBgRtEECFpcd8wEZ9aaolWevtX3WrU9Ae27sANVRqnAP1jeOCB7rpT-Var2ijIVYCCeuMykfpoLWGQZzxuk5W5sSYVpPITZSFrlOSgjBv6rGoD3NDY7qpZUL5YNE6sgs5zE1BghdxMI-j9OlNbWlfQObwmKFOhJ5AVLCn5DTZEQec7ajd9yxVw7cHk70QlhxvFu8HmyaqBdH2sPvwyh7KcJvdq5_cCmPWkUAFjeJZtEP6rECQGj5FwPCPBQbm6Bu5-XDQMutC2wz0kUDi-iOWk31m0yoyhXuruyg-GdtFfkpiOzzXnJrL-N" alt="ปัณณวัตน์ ราชเจริญ">
+          <img
+            class="profile-photo"
+            src="profile.jpg"
+            alt="ปัณณวัตน์ ราชเจริญ"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+          >
+          <div class="profile-fallback" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="34" r="18" fill="currentColor" opacity=".8"/><path d="M17 86c2-19 15-30 33-30s31 11 33 30" fill="currentColor" opacity=".6"/></svg>
           </div>
           <span class="profile-tag">ปัณณวัตน์ ราชเจริญ · ครูเทคโนโลยี</span>
         </div>
+
         <div class="about-copy reveal">
           <span class="section-kicker">ABOUT ME</span>
           <h3>แนะนำตัว · ปัณณวัตน์ ราชเจริญ</h3>
